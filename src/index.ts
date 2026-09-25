@@ -5,10 +5,18 @@
 import * as fs from "~/fs";
 import { EOL } from "~/os";
 import { server } from "~/facade";
-import { ContentKind, Entry, EntryKind, Section, SectionDump, SectionEntry, Config } from "./types";
+import { ContentKind, Entry, EntryKind, Section, SectionDump, SectionEntry, Config, UniversalConfigOptions } from "./types";
 import { Found } from "./internal";
 
 export * from "./types";
+
+export default defineModule<UniversalConfigOptions>({
+	meta: { name: "universal-config", configKey: "configs" },
+	defaults: { baseDir: "" },
+	setup(options) {
+		setBaseDir(options.baseDir);
+	},
+});
 
 // Every config and every section loaded, in the order they came: a Pawn
 // plugin knows them by their place here.

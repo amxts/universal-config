@@ -48,3 +48,15 @@ export interface SectionDump {
 	heading: string;
 	lines: string[];
 }
+
+/** Universal Config's options: `configs` in amxts.config.ts. */
+export interface UniversalConfigOptions {
+	/** The folder under configs/ that names are loaded from: "" is configs/ itself. */
+	baseDir: string;
+}
+
+declare module "@amxts/core" {
+	interface ModuleOptions {
+		configs?: Partial<UniversalConfigOptions>;
+	}
+}
