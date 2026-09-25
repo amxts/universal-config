@@ -1,31 +1,40 @@
 {
-  "name": "@amxts/universal-config",
-  "version": "1.6.1",
-  "description": "INI configs for amxts plugins: sections, typed values, paths - and the cfg_* natives for Pawn plugins.",
-  "keywords": [
-    "amxts-module",
-    "amxts-config",
-    "amxmodx",
-    "counter-strike"
-  ],
-  "author": {
-    "name": "kukson777",
-    "url": "https://github.com/kukson777"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amxts/universal-config.git"
-  },
-  "homepage": "https://github.com/amxts/universal-config#readme",
-  "files": [
-    "modules/universal-config.ts",
-    "universal-config.ts",
-    "universal_config.inc",
-    "README.md",
-    "README.ru.md"
-  ],
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@amxts/universal-config",
+	"type": "module",
+	"version": "1.6.1",
+	"description": "INI configs for amxts plugins: sections, typed values, paths - and the cfg_* natives for Pawn plugins.",
+	"author": {
+		"name": "kukson777",
+		"url": "https://github.com/kukson777"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/amxts/universal-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/amxts/universal-config.git"
+	},
+	"keywords": [
+		"amxts-module",
+		"amxts-config",
+		"amxmodx",
+		"counter-strike"
+	],
+	"files": [
+		"README.md",
+		"README.ru.md",
+		"modules/universal-config.ts",
+		"universal-config.ts",
+		"universal_config.inc"
+	],
+	"scripts": {
+		"lint": "eslint",
+		"lint:fix": "eslint --fix"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^9.5.1",
+		"eslint": "^10.11.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }
