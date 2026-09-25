@@ -19,6 +19,10 @@
 		"amxmodx",
 		"counter-strike"
 	],
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"types": "./src/index.ts",
 	"files": [
 		"README.md",
 		"README.ru.md",
@@ -26,8 +30,8 @@
 		"src"
 	],
 	"amxts": {
-		"module": "src/module.ts",
-		"plugin": "src/plugin.ts",
+		"module": "src/index.ts",
+		"natives": "src/natives.ts",
 		"include": "include/universal_config.inc"
 	},
 	"scripts": {
