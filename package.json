@@ -22,10 +22,14 @@
 	"files": [
 		"README.md",
 		"README.ru.md",
-		"modules/universal-config.ts",
-		"universal-config.ts",
-		"universal_config.inc"
+		"include",
+		"src"
 	],
+	"amxts": {
+		"module": "src/module.ts",
+		"plugin": "src/plugin.ts",
+		"include": "include/universal_config.inc"
+	},
 	"scripts": {
 		"lint": "eslint",
 		"lint:fix": "eslint --fix"

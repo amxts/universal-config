@@ -2,7 +2,7 @@
 // several values and `key = { ... }` blocks, read into memory and written
 // back with their comments and blank lines.
 //
-//   import * as ini from "~/modules/universal-config";
+//   import * as ini from "@amxts/universal-config";
 //
 //   ini.setBaseDir("nhnse");                        // configs/nhnse/
 //   const config = ini.load("core");

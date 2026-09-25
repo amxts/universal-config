@@ -10,7 +10,7 @@
 // include's comments - hence English.
 import { Player, plugin, print, server } from "~/facade";
 import { console_print } from "~/natives";
-import * as ini from "~/modules/universal-config";
+import * as ini from "./module";
 
 plugin({ name: "Universal Config System", version: "1.6.1", author: "kukson", description: "INI configs for plugins: the cfg_* natives", include: "universal_config.inc" });
 
