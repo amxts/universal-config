@@ -1,4 +1,6 @@
-// The public types of universal-config: what its functions take and give back.
+/**
+ * The types of Universal Config's API: configs, sections and their entries.
+ */
 
 /** A `key = value` line, or a `key = { ... }` block. */
 export type EntryKind = "value" | "block";

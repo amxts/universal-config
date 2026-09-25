@@ -1,14 +1,6 @@
 /**
- * The `cfg_*` natives: universal-config for Pawn plugins.
- *
- * The 28 natives of the original universal_config.amxx, with the parameters,
- * tags and defaults of `include/universal_config.inc`, so a Pawn plugin built
- * against it loads unchanged. Each `export function` here is a native of the
- * same name, over the module in `./index`; its JSDoc becomes the include's
- * comments, hence English.
- *
- * A TypeScript plugin does not need these: it imports the module,
- * `import * as ini from "@amxts/universal-config"`.
+ * Universal Config for Pawn plugins: the 28 cfg_* natives of the original
+ * universal_config.amxx, as include/universal_config.inc declares them.
  */
 import { Player, plugin, print, server } from "~/facade";
 import { console_print } from "~/natives";
