@@ -1,0 +1,28 @@
+{
+  "name": "@amxts/universal-config",
+  "version": "1.6.1",
+  "description": "INI configs for amxts plugins: sections, typed values, paths - and the cfg_* natives for Pawn plugins.",
+  "keywords": [
+    "amxts-module",
+    "amxts-config",
+    "amxmodx",
+    "counter-strike"
+  ],
+  "author": "kukson",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amxts/universal-config.git"
+  },
+  "homepage": "https://github.com/amxts/universal-config#readme",
+  "files": [
+    "modules/universal-config.ts",
+    "universal-config.ts",
+    "universal_config.inc",
+    "README.md",
+    "README.ru.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
