@@ -1,81 +1,41 @@
-// Universal Config: INI files with [sections], `key = value` lines, lines of
-// several values and `key = { ... }` blocks, read into memory and written
-// back with their comments and blank lines.
-//
-//   import * as ini from "@amxts/universal-config";
-//
-//   ini.setBaseDir("nhnse");                        // configs/nhnse/
-//   const config = ini.load("core");
-//   const main = ini.section(config, "MAIN");
-//   if (main == null) return;
-//
-//   const prefix = ini.getValue(main, "CHAT_PREFIX");  // string | null
-//   const hide = ini.getInt(main, "HUD/HIDE_TIME");     // a path into blocks
-//   ini.set(main, "CHAT_PREFIX", "[HNS]");
-//   ini.save(config, "core.ini");
-//
-// The universal-config plugin (as/universal-config.ts) hands the same
-// functions to Pawn plugins as universal_config's cfg_* natives, so a file
-// read or written through either comes out the same. It owns this module:
-// the server has one instance of it, that plugin's, and any other plugin that
-// imports it calls that instance (scripts/shared-modules.ts) - one base
-// folder, one set of loaded files.
+/**
+ * universal-config — INI configs for amxts plugins.
+ *
+ * INI files with `[sections]`, `key = value` lines, lines of several values
+ * and `key = { ... }` blocks of rows: read into memory and written back with
+ * their comments and blank lines.
+ *
+ * ```ts
+ * import * as ini from "@amxts/universal-config";
+ *
+ * ini.setBaseDir("myplugin");                         // configs/myplugin/
+ * const config = ini.load("settings");
+ * const main = ini.section(config, "MAIN");
+ * if (main == null) return;
+ *
+ * const prefix = ini.getValue(main, "CHAT_PREFIX");   // string | null
+ * const hide = ini.getInt(main, "HUD/HIDE_TIME");     // a path into a block
+ * ini.set(main, "CHAT_PREFIX", "[HNS]");
+ * ini.save(config, "settings.ini");
+ * ```
+ *
+ * Pawn plugins read and write the same files through the `cfg_*` natives
+ * (`include/universal_config.inc`), and a file comes out the same whichever
+ * side wrote it.
+ *
+ * The server runs one instance of the module, in its own plugin
+ * (`src/natives.ts`): one base folder and one set of loaded files for every
+ * plugin that imports it.
+ *
+ * The types are in `./types`.
+ */
 import * as fs from "~/fs";
 import { EOL } from "~/os";
 import { server } from "~/facade";
+import { ContentKind, Entry, EntryKind, Section, SectionDump, SectionEntry, Config } from "./types";
+import { Found } from "./internal";
 
-/** A `key = value` line, or a `key = { ... }` block. */
-export type EntryKind = "value" | "block";
-
-/** What a block holds: one value, a line of strings, or rows. */
-export type ContentKind = "value" | "strings" | "entries";
-
-/** A line of a section or a row of a block. */
-export interface Entry {
-	key: string;
-	kind: EntryKind;
-	content: ContentKind;
-	values: string[];
-	rows: Entry[];
-	/** The comment and blank lines read before it; null for one made at run time. */
-	comments: string[] | null;
-}
-
-/** A [section] of a config file. */
-export interface Section {
-	name: string;
-	/** The comment and blank lines read before it; null for one made at run time. */
-	comments: string[] | null;
-	entries: Entry[];
-}
-
-/** A loaded config file. */
-export interface Config {
-	/** The name it was loaded under, ".ini" included. */
-	name: string;
-	/** In file order; a name the file has twice is there twice. */
-	sections: Section[];
-}
-
-/** One entry of a section as `entries()` lists it. */
-export interface SectionEntry {
-	key: string;
-	/** The entry's values; empty for a block. */
-	values: string[];
-	block: boolean;
-}
-
-/** What `dump_config` prints for one section: the heading, then its entries. */
-export interface SectionDump {
-	heading: string;
-	lines: string[];
-}
-
-/** Where a path leads: the entry, and the line of a block it means. */
-interface Found {
-	entry: Entry;
-	line: number;
-}
+export * from "./types";
 
 // Every config and every section loaded, in the order they came: a Pawn
 // plugin knows them by their place here.

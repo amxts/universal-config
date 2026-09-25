@@ -1,13 +1,15 @@
-// Universal Config System 1.6.1 in TypeScript: the 28 cfg_* natives of
-// universal_config.amxx, for the Pawn plugins built on it (menu_core, knife,
-// surf, jbe) and for TypeScript plugins that call them through `~/natives`.
-//
-// Reading, writing and lookups are `~/modules/universal-config`; a
-// TypeScript plugin imports that and needs no natives. This file is the
-// natives over it: each `export function` is a native of the same name, with
-// the parameters, tags and defaults of universal_config.inc, so old .amxx
-// plugins load against it unchanged. Its JSDoc becomes the generated
-// include's comments - hence English.
+/**
+ * The `cfg_*` natives: universal-config for Pawn plugins.
+ *
+ * The 28 natives of the original universal_config.amxx, with the parameters,
+ * tags and defaults of `include/universal_config.inc`, so a Pawn plugin built
+ * against it loads unchanged. Each `export function` here is a native of the
+ * same name, over the module in `./index`; its JSDoc becomes the include's
+ * comments, hence English.
+ *
+ * A TypeScript plugin does not need these: it imports the module,
+ * `import * as ini from "@amxts/universal-config"`.
+ */
 import { Player, plugin, print, server } from "~/facade";
 import { console_print } from "~/natives";
 import * as ini from "./index";
