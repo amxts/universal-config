@@ -1,33 +1,6 @@
 /**
- * universal-config — INI configs for amxts plugins.
- *
- * INI files with `[sections]`, `key = value` lines, lines of several values
- * and `key = { ... }` blocks of rows: read into memory and written back with
- * their comments and blank lines.
- *
- * ```ts
- * import * as ini from "@amxts/universal-config";
- *
- * ini.setBaseDir("myplugin");                         // configs/myplugin/
- * const config = ini.load("settings");
- * const main = ini.section(config, "MAIN");
- * if (main == null) return;
- *
- * const prefix = ini.getValue(main, "CHAT_PREFIX");   // string | null
- * const hide = ini.getInt(main, "HUD/HIDE_TIME");     // a path into a block
- * ini.set(main, "CHAT_PREFIX", "[HNS]");
- * ini.save(config, "settings.ini");
- * ```
- *
- * Pawn plugins read and write the same files through the `cfg_*` natives
- * (`include/universal_config.inc`), and a file comes out the same whichever
- * side wrote it.
- *
- * The server runs one instance of the module, in its own plugin
- * (`src/natives.ts`): one base folder and one set of loaded files for every
- * plugin that imports it.
- *
- * The types are in `./types`.
+ * Universal Config — INI configs for plugins: sections, typed values, paths,
+ * read and written back with their comments. How to use it: README.md.
  */
 import * as fs from "~/fs";
 import { EOL } from "~/os";
