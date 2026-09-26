@@ -396,7 +396,7 @@ function dumpEntry(lines: string[], dumped: Entry, level: number) {
 	lines.push(`${indent}}`);
 }
 
-/** The folder under configs/ that file names are relative to: "" is configs/ itself. */
+/** Sets the folder under configs/ that file names are relative to, e.g. "myserver"; "" is configs/ itself. */
 export function setBaseDir(dir: string) {
 	baseDir = dir.trim();
 }
@@ -449,7 +449,7 @@ export function writeSection(written: Section, name: string) {
 	return writeLines(configPath(name), lines);
 }
 
-/** What `dump_config` prints: every section of every config with its entries. */
+/** A dump of every loaded config - each section with its entries, as `dump_config` prints them. */
 export function dump() {
 	const dumped: SectionDump[] = [];
 	for (let i = 0; i < sections.length; i++) {
@@ -486,7 +486,7 @@ export function getNumber(section: Section, key: string, index = 0) {
 	return text != null ? toNumber(text) : 0;
 }
 
-/** True for a whole number other than 0: "1", "2"; "true" is false. */
+/** A value as a boolean: true for a whole number other than 0, e.g. "1" or "2"; false for anything else, "true" included. */
 export function getBoolean(section: Section, key: string, index = 0) {
 	return getInt(section, key, index) != 0;
 }
@@ -548,8 +548,8 @@ export function entries(section: Section) {
 }
 
 /**
- * How many: values in a line, rows in a block, or - for a key that is there
- * more than once - how many times it is. A path counts what it leads to.
+ * The number of values in a line, of rows in a block, or - for a key that is
+ * there more than once - of times it is there. A path counts what it leads to.
  */
 export function size(section: Section, key: string) {
 	const parts = splitPath(key);
@@ -660,7 +660,7 @@ export function setRowComment(section: Section, key: string, row: number, commen
 	return true;
 }
 
-/** How a Pawn plugin knows a config: its place among the loaded ones; -1 for none. */
+/** A config's handle for Pawn plugins: its number among the loaded ones; -1 for none. */
 export function configHandle(config: Config) {
 	return configs.indexOf(config);
 }
@@ -670,7 +670,7 @@ export function configByHandle(handle: number) {
 	return handle >= 0 && handle < configs.length ? configs[handle] : null;
 }
 
-/** How a Pawn plugin knows a section: its place among every loaded one; -1 for none. */
+/** A section's handle for Pawn plugins: its number among every loaded one; -1 for none. */
 export function sectionHandle(found: Section) {
 	return sections.indexOf(found);
 }

@@ -6,8 +6,8 @@ export default {
 		ru: `Строка \`key = value\` или блок \`key = { ... }\`.`,
 	},
 	"ContentKind": {
-		en: `What a block holds: one value, a line of strings, or rows.`,
-		ru: `Что хранит блок: одно значение, строку из нескольких значений или строки.`,
+		en: `A block's content, one of: one value, a line of strings, or rows.`,
+		ru: `Содержимое блока, одно из: одно значение, строка из нескольких значений или строки.`,
 	},
 	"Entry": {
 		en: `A line of a section or a row of a block.`,
@@ -22,12 +22,12 @@ export default {
 		ru: `"value" для \`key = value\`, "block" для \`key = { ... }\`.`,
 	},
 	"Entry.content": {
-		en: `What it holds: one value, a line of strings, or rows.`,
-		ru: `Что хранит запись: одно значение, строку из нескольких значений или строки.`,
+		en: `The entry's content, one of: one value, a line of strings, or rows.`,
+		ru: `Содержимое записи, одно из: одно значение, строка из нескольких значений или строки.`,
 	},
 	"Entry.values": {
-		en: `Its values, in order; empty for a block of rows.`,
-		ru: `Её значения по порядку; пусто для блока из строк.`,
+		en: `The entry's values, in order; empty for a block of rows.`,
+		ru: `Значения записи по порядку; пусто для блока из строк.`,
 	},
 	"Entry.rows": {
 		en: `A block's rows; empty otherwise.`,
@@ -50,8 +50,8 @@ export default {
 		ru: `Комментарий и пустые строки, прочитанные перед ней; null для секции, созданной во время работы.`,
 	},
 	"Section.entries": {
-		en: `Its lines, in file order.`,
-		ru: `Её строки в порядке файла.`,
+		en: `The section's lines, in file order.`,
+		ru: `Строки секции в порядке файла.`,
 	},
 	"Config": {
 		en: `A loaded config file.`,
@@ -82,23 +82,23 @@ export default {
 		ru: `Блок ли это \`key = { ... }\`.`,
 	},
 	"SectionDump": {
-		en: `What \`dump_config\` prints for one section: the heading, then its entries.`,
-		ru: `То, что \`dump_config\` печатает для одной секции: заголовок, затем её записи.`,
+		en: `A dump of one section - the heading, then the entries - as \`dump_config\` prints it.`,
+		ru: `Дамп одной секции — заголовок, затем записи, — как его печатает \`dump_config\`.`,
 	},
 	"SectionDump.heading": {
 		en: `"Section 0: NAME".`,
 		ru: `Заголовок вида "Section 0: NAME".`,
 	},
 	"SectionDump.lines": {
-		en: `Its entries, a line each.`,
-		ru: `Её записи, по строке на каждую.`,
+		en: `The section's entries, a line each.`,
+		ru: `Записи секции, по строке на каждую.`,
 	},
 	"ConfigCoreOptions": {
 		en: `Config Core's options: \`configs\` in amxts.config.ts.`,
 		ru: `Настройки Config Core: \`configs\` в amxts.config.ts.`,
 	},
 	"ConfigCoreOptions.baseDir": {
-		en: `The folder under configs/ that names are loaded from: "" is configs/ itself.`,
-		ru: `Папка внутри configs/, из которой загружаются файлы по имени: "" — сама configs/.`,
+		en: `The folder under configs/ that names are loaded from, e.g. "myserver"; "" is configs/ itself.`,
+		ru: `Папка внутри configs/, из которой загружаются файлы по имени, например "myserver"; "" — сама configs/.`,
 	},
 };

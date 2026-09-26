@@ -2,8 +2,8 @@
 // one AMXTS_DOCS_LANG picks into the JSDoc above each element.
 export default {
 	setBaseDir: {
-		en: `The folder under configs/ that file names are relative to: "" is configs/ itself.`,
-		ru: `Папка внутри configs/, от которой считаются имена файлов: "" — сама configs/.`,
+		en: `Sets the folder under configs/ that file names are relative to, e.g. "myserver"; "" is configs/ itself.`,
+		ru: `Задаёт папку внутри configs/, от которой считаются имена файлов, например "myserver"; "" — сама configs/.`,
 	},
 	load: {
 		en: `
@@ -40,8 +40,8 @@ export default {
 		ru: `Записывает одну секцию в \`configs/<baseDir>/<name>\`; \`save()\` пишет все.`,
 	},
 	dump: {
-		en: `What \`dump_config\` prints: every section of every config with its entries.`,
-		ru: `То, что печатает \`dump_config\`: все секции всех конфигов с их записями.`,
+		en: `A dump of every loaded config - each section with its entries, as \`dump_config\` prints them.`,
+		ru: `Дамп всех загруженных конфигов — каждая секция с записями, как их печатает \`dump_config\`.`,
 	},
 	getValue: {
 		en: `The \`index\`-th value of a key's line, without its quotes; null when there is none. A key with "/" is a path.`,
@@ -68,8 +68,8 @@ export default {
 		ru: `Число; 0, если его нет.`,
 	},
 	getBoolean: {
-		en: `True for a whole number other than 0: "1", "2"; "true" is false.`,
-		ru: `true для целого числа, отличного от 0: "1", "2"; "true" — это false.`,
+		en: `A value as a boolean: true for a whole number other than 0, e.g. "1" or "2"; false for anything else, "true" included.`,
+		ru: `Значение как булево: true для целого числа, отличного от 0, например "1" или "2"; false для всего остального, включая "true".`,
 	},
 	getWords: {
 		en: `
@@ -101,13 +101,13 @@ export default {
 	},
 	size: {
 		en: `
-			How many: values in a line, rows in a block, or - for a key that is there
-			more than once - how many times it is. A path counts what it leads to.
+			The number of values in a line, of rows in a block, or - for a key that is
+			there more than once - of times it is there. A path counts what it leads to.
 		`,
 		ru: `
-			Сколько: значений в строке, строк в блоке или — для ключа, который
-			встречается несколько раз, — сколько раз он встречается. Путь считает то,
-			к чему ведёт.
+			Число значений в строке, строк в блоке или — для ключа, который
+			встречается несколько раз, — число его повторов. Путь считает то, к чему
+			ведёт.
 		`,
 	},
 	has: {
@@ -165,7 +165,7 @@ export default {
 		ru: `Комментарий, который пишется перед строкой \`row\` блока \`key\`; "" его убирает. false, если такой строки нет.`,
 	},
 	configHandle: {
-		en: `How a Pawn plugin knows a config: its place among the loaded ones; -1 for none.`,
+		en: `A config's handle for Pawn plugins: its number among the loaded ones; -1 for none.`,
 		ru: `Дескриптор конфига для Pawn-плагина: его номер среди загруженных; -1, если конфига нет.`,
 	},
 	configByHandle: {
@@ -173,7 +173,7 @@ export default {
 		ru: `Конфиг по дескриптору Pawn-плагина; null, если такого нет.`,
 	},
 	sectionHandle: {
-		en: `How a Pawn plugin knows a section: its place among every loaded one; -1 for none.`,
+		en: `A section's handle for Pawn plugins: its number among every loaded one; -1 for none.`,
 		ru: `Дескриптор секции для Pawn-плагина: её номер среди всех загруженных; -1, если секции нет.`,
 	},
 	sectionByHandle: {
