@@ -1,8 +1,19 @@
-# Config Core: INI configs
+<div align="center">
 
-INI files with `[sections]`, `key = value` lines, lines of several values and
-`key = { ... }` blocks of rows, read into memory and written back with their
-comments and blank lines.
+# Config Core
+
+*INI configs: sections, typed values, paths into blocks*
+
+[![amxts module](https://img.shields.io/badge/amxts-module-3178c6?style=flat-square)](https://amxts.github.io/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+
+[From TypeScript](#from-typescript) • [From any plugin](#from-any-plugin-one-config-core-for-the-server) • [For Pawn plugins](#for-pawn-plugins) • [Differences](#where-it-differs-from-the-original)
+
+**English** | [Русский](README.ru.md)
+
+</div>
+
+INI files with `[sections]`, `key = value` lines, lines of several values and `key = { ... }` blocks of rows, read into memory and written back with their comments and blank lines.
 
 ## From TypeScript
 
