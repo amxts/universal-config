@@ -1,12 +1,12 @@
 /**
- * Universal Config for Pawn plugins: the 28 cfg_* natives of the original
+ * Config Core for Pawn plugins: the 28 cfg_* natives of the original
  * universal_config.amxx, as include/universal_config.inc declares them.
  */
 import { Player, plugin, print, server } from "~/facade";
 import { console_print } from "~/natives";
 import * as ini from "./index";
 
-plugin({ name: "Universal Config System", version: "1.6.1", author: "kukson", description: "INI configs for plugins: the cfg_* natives", include: "universal_config.inc" });
+plugin({ name: "Config Core", version: "1.6.1", author: "kukson", description: "INI configs for plugins: the cfg_* natives", include: "universal_config.inc" });
 
 /** A loaded config file. */
 export enum ConfigFile {
@@ -32,7 +32,7 @@ export enum ContentType {
 }
 
 server.addEventListener("init", () => {
-	console.log("[UniversalConfig] Plugin initialized (v1.6.1)");
+	console.log("[ConfigCore] Plugin initialized (v1.6.1)");
 });
 
 server.addCommand("dump_config", dumpConfig, { access: "Cvar", description: "Dumps all configurations" });

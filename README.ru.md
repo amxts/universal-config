@@ -1,4 +1,4 @@
-# INI-конфиги: universal-config
+# Config Core: INI-конфиги
 
 INI-файлы с `[секциями]`, строками `ключ = значение`, строками из нескольких
 значений и блоками `ключ = { ... }`: читаются в память и пишутся обратно
@@ -7,7 +7,7 @@ INI-файлы с `[секциями]`, строками `ключ = значе�
 ## Из TypeScript
 
 ```ts
-import * as ini from "~/modules/universal-config";
+import * as ini from "@amxts/config-core";
 
 ini.setBaseDir("myplugin");                       // configs/myplugin/
 const config = ini.load("settings");              // configs/myplugin/settings.ini
@@ -37,10 +37,10 @@ ini.save(config, "settings.ini");
   - там, где не может: путь через обычное значение.
 - Сохранение пишет комментарии и пустые строки туда, где они были.
 
-## Из любого плагина: один universal-config на сервер
+## Из любого плагина: один Config Core на сервер
 
-На сервере один экземпляр `~/modules/universal-config` — плагина
-universal-config. Любой другой плагин, который его импортирует, вызывает этот
+На сервере один экземпляр `@amxts/config-core` — плагина
+config-core. Любой другой плагин, который его импортирует, вызывает этот
 экземпляр, с теми же функциями и типами (см.
 Общие модули): папка конфигов одна на весь сервер
 (menu-core читает из неё и свои меню), а файл,
@@ -49,14 +49,16 @@ universal-config. Любой другой плагин, который его и
 
 ## Для Pawn-плагинов
 
-Плагин universal-config отдаёт Pawn-плагинам 28 нативов
+Плагин config-core отдаёт Pawn-плагинам 28 нативов
 universal_config — `cfg_load_file`, `cfg_get_value`, `cfg_set_int` и
 остальные — с сигнатурами оригинального `universal_config.inc`, который он
 называет своим контрактом (`plugin({ include: "universal_config.inc" })`,
 см. natives.md), так что собранные `.amxx` (menu_core и другие)
-работают с ним без изменений. Он
-заменяет universal_config.amxx: тот закомментировать в `plugins.ini` — два
-плагина не могут отдавать одни и те же нативы.
+работают с ним без изменений.
+
+Config Core заменяет universal_config.amxx; Pawn-плагины оставляют
+`#include <universal_config>`. universal_config.amxx закомментировать в
+`plugins.ini`: два плагина не могут отдавать одни и те же нативы.
 
 ## Чем отличается от оригинала
 

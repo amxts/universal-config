@@ -1,4 +1,4 @@
-# INI configs: universal-config
+# Config Core: INI configs
 
 INI files with `[sections]`, `key = value` lines, lines of several values and
 `key = { ... }` blocks of rows, read into memory and written back with their
@@ -7,7 +7,7 @@ comments and blank lines.
 ## From TypeScript
 
 ```ts
-import * as ini from "~/modules/universal-config";
+import * as ini from "@amxts/config-core";
 
 ini.setBaseDir("myplugin");                       // configs/myplugin/
 const config = ini.load("settings");              // configs/myplugin/settings.ini
@@ -37,10 +37,10 @@ is done by the module's functions, as with `fs`.
   a path. It returns false where it cannot: a path through a plain value.
 - Saving writes the comments and blank lines back where they were.
 
-## From any plugin: one universal-config for the server
+## From any plugin: one Config Core for the server
 
-The server has one instance of `~/modules/universal-config`: the
-universal-config plugin's. Any other plugin that imports it calls that
+The server has one instance of `@amxts/config-core`: the
+config-core plugin's. Any other plugin that imports it calls that
 instance, with the same functions and types (see
 Shared modules): the base folder is one for the whole
 server (menu-core reads its menus from it too), and a file loaded by one plugin is among the loaded files of all. A `Config`
@@ -49,14 +49,16 @@ are read there.
 
 ## For Pawn plugins
 
-The universal-config plugin gives Pawn plugins universal_config's 28
+The config-core plugin gives Pawn plugins universal_config's 28
 natives — `cfg_load_file`, `cfg_get_value`, `cfg_set_int` and the rest — with
 the signatures of the original `universal_config.inc`, which it names as its
 contract (`plugin({ include: "universal_config.inc" })`, see
 natives.md), so compiled `.amxx` plugins (menu_core and others)
-work against it unchanged. It replaces
-universal_config.amxx: comment that one out in `plugins.ini`, two plugins
-cannot give the same natives.
+work against it unchanged.
+
+Config Core replaces universal_config.amxx; Pawn plugins keep
+`#include <universal_config>`. Comment universal_config.amxx out in
+`plugins.ini`: two plugins cannot give the same natives.
 
 ## Where it differs from the original
 

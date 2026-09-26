@@ -1,17 +1,17 @@
 /**
- * Universal Config — INI configs for plugins: sections, typed values, paths,
+ * Config Core — INI configs for plugins: sections, typed values, paths,
  * read and written back with their comments. How to use it: README.md.
  */
 import * as fs from "~/fs";
 import { EOL } from "~/os";
 import { server } from "~/facade";
-import { ContentKind, Entry, EntryKind, Section, SectionDump, SectionEntry, Config, UniversalConfigOptions } from "./types";
+import { ContentKind, Entry, EntryKind, Section, SectionDump, SectionEntry, Config, ConfigCoreOptions } from "./types";
 import { Found } from "./internal";
 
 export * from "./types";
 
-export default defineModule<UniversalConfigOptions>({
-	meta: { name: "universal-config", configKey: "configs" },
+export default defineModule<ConfigCoreOptions>({
+	meta: { name: "config-core", configKey: "configs" },
 	defaults: { baseDir: "" },
 	setup(options) {
 		setBaseDir(options.baseDir);

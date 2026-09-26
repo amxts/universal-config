@@ -1,5 +1,5 @@
 {
-	"name": "@amxts/universal-config",
+	"name": "@amxts/config-core",
 	"type": "module",
 	"version": "1.6.1",
 	"description": "INI configs for amxts plugins: sections, typed values, paths - and the cfg_* natives for Pawn plugins.",
@@ -8,10 +8,10 @@
 		"url": "https://github.com/kukson777"
 	},
 	"license": "MIT",
-	"homepage": "https://github.com/amxts/universal-config#readme",
+	"homepage": "https://github.com/amxts/config-core#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/amxts/universal-config.git"
+		"url": "git+https://github.com/amxts/config-core.git"
 	},
 	"keywords": [
 		"amxts-module",

@@ -93,11 +93,11 @@ export default {
 		en: `Its entries, a line each.`,
 		ru: `Её записи, по строке на каждую.`,
 	},
-	"UniversalConfigOptions": {
-		en: `Universal Config's options: \`configs\` in amxts.config.ts.`,
-		ru: `Настройки Universal Config: \`configs\` в amxts.config.ts.`,
+	"ConfigCoreOptions": {
+		en: `Config Core's options: \`configs\` in amxts.config.ts.`,
+		ru: `Настройки Config Core: \`configs\` в amxts.config.ts.`,
 	},
-	"UniversalConfigOptions.baseDir": {
+	"ConfigCoreOptions.baseDir": {
 		en: `The folder under configs/ that names are loaded from: "" is configs/ itself.`,
 		ru: `Папка внутри configs/, из которой загружаются файлы по имени: "" — сама configs/.`,
 	},
