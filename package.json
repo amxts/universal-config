@@ -27,6 +27,7 @@
 		"README.md",
 		"README.ru.md",
 		"include",
+		"scripts/docs",
 		"src"
 	],
 	"amxts": {

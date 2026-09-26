@@ -561,6 +561,7 @@ export function size(section: Section, key: string) {
 	return found != null ? sizeOf(found.entry) : 0;
 }
 
+/** Whether the section has the key. A key with "/" is not a path here. */
 export function has(section: Section, key: string) {
 	return named(section.entries, key).length > 0;
 }
@@ -578,10 +579,12 @@ export function set(section: Section, key: string, text: string, index = 0, line
 	return setByPath(section, parts, text, index);
 }
 
+/** Sets a whole number; the fraction is dropped: 2.7 is written as 2. */
 export function setInt(section: Section, key: string, value: number, index = 0) {
 	return set(section, key, `${Math.trunc(value)}`, index);
 }
 
+/** Sets a number, written as is: 2.5, not 2.500000. */
 export function setNumber(section: Section, key: string, value: number, index = 0) {
 	return set(section, key, `${value}`, index);
 }
@@ -662,6 +665,7 @@ export function configHandle(config: Config) {
 	return configs.indexOf(config);
 }
 
+/** The config a Pawn plugin's handle stands for; null for none. */
 export function configByHandle(handle: number) {
 	return handle >= 0 && handle < configs.length ? configs[handle] : null;
 }
@@ -671,6 +675,7 @@ export function sectionHandle(found: Section) {
 	return sections.indexOf(found);
 }
 
+/** The section a Pawn plugin's handle stands for; null for none. */
 export function sectionByHandle(handle: number) {
 	return handle >= 0 && handle < sections.length ? sections[handle] : null;
 }
