@@ -262,8 +262,7 @@ export function cfg_get_sections_count() {
 
 /** A section's name by its number, 0 .. cfg_get_sections_count() - 1. */
 export function cfg_get_section_name(index: number) {
-	const found = ini.sectionByHandle(index);
-	return found != null ? found.name : null;
+	return ini.sectionByHandle(index)?.name ?? null;
 }
 
 /**

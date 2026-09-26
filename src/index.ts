@@ -112,11 +112,7 @@ function toNumber(text: string) {
 }
 
 function named(entries: Entry[], key: string) {
-	const found: Entry[] = [];
-	for (const each of entries) {
-		if (sameKey(each.key, key)) found.push(each);
-	}
-	return found;
+	return entries.filter(each => sameKey(each.key, key));
 }
 
 /** How many a key holds: rows of a block of rows, values otherwise. */
@@ -226,10 +222,7 @@ function setRow(block: Entry, value: string, index: number, line: number) {
 /** A plain key: a line of values - `index` picks which, when it is there more than once - or a row of its block. */
 function setPlain(section: Section, key: string, value: string, index: number, line: number) {
 	const matches = named(section.entries, key);
-	let target: Entry | null = null;
-	for (let i = 0; i < matches.length && target == null; i++) {
-		if (matches[i].kind == "block" || i == index) target = matches[i];
-	}
+	let target = matches.find((each, i) => each.kind == "block" || i == index);
 
 	if (target == null) {
 		target = entry(key, "value", [], null);
@@ -422,10 +415,7 @@ export function load(name: string) {
 
 /** A section of a config by its name - the last one, when the file has two. */
 export function section(config: Config, name: string) {
-	for (let i = config.sections.length - 1; i >= 0; i--) {
-		if (config.sections[i].name == name) return config.sections[i];
-	}
-	return null;
+	return config.sections.findLast(each => each.name == name);
 }
 
 /** The section, made when the config does not have it. */
@@ -603,10 +593,7 @@ export function setBoolean(section: Section, key: string, value: boolean, index 
 
 /** Removes every entry of the key; false when there was none. */
 export function remove(section: Section, key: string) {
-	const kept: Entry[] = [];
-	for (const each of section.entries) {
-		if (!sameKey(each.key, key)) kept.push(each);
-	}
+	const kept = section.entries.filter(each => !sameKey(each.key, key));
 	const removed = kept.length != section.entries.length;
 	section.entries = kept;
 	return removed;
@@ -690,10 +677,7 @@ export function sectionByHandle(handle: number) {
 
 /** A section of that name in any config: the last one loaded. */
 export function findSection(name: string) {
-	for (let i = sections.length - 1; i >= 0; i--) {
-		if (sections[i].name == name) return sections[i];
-	}
-	return null;
+	return sections.findLast(each => each.name == name);
 }
 
 /** Every section of every config, in the order they were loaded. */
