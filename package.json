@@ -36,6 +36,8 @@
 		"include": "include/universal_config.inc"
 	},
 	"scripts": {
+		"test": "bun test",
+		"check": "amxts check",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix"
 	},
@@ -44,6 +46,7 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^9.5.1",
+		"@types/bun": "^1.4.2",
 		"eslint": "^10.11.0",
 		"typescript": "^6.0.3"
 	},
